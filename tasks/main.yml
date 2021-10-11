@@ -1,2 +1,12 @@
 ---
-# tasks file for nix-project-dev
+- name: Checkout Github Projects
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ code_checkout_path_github }}/{{ item.name }}"
+  loop: "{{ project_list_github }}"
+
+- name: Set direnv Files
+  copy:
+    content: "{{ item.direnv_file }}"
+    dest: "{{ code_checkout_path_github }}/{{ item.name }}/.direnv"
+  loop: "{{ project_list }}
