@@ -9,4 +9,4 @@
   copy:
     content: "{{ item.direnv_file }}"
     dest: "{{ code_checkout_path_github }}/{{ item.name }}/.direnv"
-  loop: "{{ project_list }}
+  loop: "{{ project_list }}"
