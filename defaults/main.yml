@@ -10,5 +10,5 @@ project_list_github:
         - "export DOTFILES_BOOTSTRAP_GIT_EMAIL=\"phillip.bonhomme@gmail.com\""
         - "export DOTFILES_BOOTSTRAP_GITHUB_USERNAME=\"pbonh\""
         - "export DOTFILES_CHECKOUT_PATH=/home/$DOTFILES_BOOTSTRAP_USER/bonhommelab"
-      direnv_file: "{{ direnv | join('\n') }}"
+      direnv_file: "{{ project_list_github[projectdev].direnv | join('\n') }}"
 project_list: "{{ project_list_github + project_list_other }}"
