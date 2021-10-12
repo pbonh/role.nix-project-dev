@@ -6,7 +6,9 @@
   loop: "{{ project_list_github }}"
 
 - name: Set direnv Files
-  copy:
-    content: "{{ item.direnv_file }}"
+  vars:
+    direnv_file_contents: "{{ item.direnv | join('\n') }}"
+  template:
+    src: direnv.j2
     dest: "{{ code_checkout_path_github }}/{{ item.name }}/.direnv"
   loop: "{{ project_list }}"
