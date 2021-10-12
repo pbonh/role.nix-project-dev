@@ -26,6 +26,8 @@ project_list_github:
       - "export DOTFILES_BOOTSTRAP_GIT_EMAIL=\"phillip.bonhomme@gmail.com\""
       - "export DOTFILES_BOOTSTRAP_GITHUB_USERNAME=\"pbonh\""
       - "export DOTFILES_CHECKOUT_PATH=/home/$DOTFILES_BOOTSTRAP_USER/bonhommelab"
+    vimrc:
+      - "\"Add vim commands"
 ```
 
 Dependencies
