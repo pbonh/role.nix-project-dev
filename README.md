@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Ansible role for checking out and installing developer config files in the project source tree(direnv, .vscode, etc.).
 
 Requirements
 ------------
@@ -11,7 +11,22 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Customize `project_list_github` and/or `project_list_other` to 1) name project 2) provide path to
+project repo and 3) provide direnv file.
+
+Ex:
+```yaml
+project_list_github:
+  projectdev:
+    name: nix-project-dev
+    repo: git@github.com:pbonh/role.nix-project-dev.git
+    direnv:
+      - "export DOTFILES_BOOTSTRAP_USER=\"phillip\""
+      - "export DOTFILES_BOOTSTRAP_GIT_NAME=\"Phillip Bonhomme\""
+      - "export DOTFILES_BOOTSTRAP_GIT_EMAIL=\"phillip.bonhomme@gmail.com\""
+      - "export DOTFILES_BOOTSTRAP_GITHUB_USERNAME=\"pbonh\""
+      - "export DOTFILES_CHECKOUT_PATH=/home/$DOTFILES_BOOTSTRAP_USER/bonhommelab"
+```
 
 Dependencies
 ------------
