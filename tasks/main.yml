@@ -3,7 +3,7 @@
   git:
     repo: "{{ item.repo }}"
     dest: "{{ code_checkout_path_github }}/{{ item.name }}"
-  loop: "{{ project_list_github }}"
+  loop: "{{ project_list_github | dict2items }}"
 
 - name: Set direnv Files
   vars:
@@ -11,4 +11,4 @@
   template:
     src: direnv.j2
     dest: "{{ code_checkout_path_github }}/{{ item.name }}/.direnv"
-  loop: "{{ project_list }}"
+  loop: "{{ project_list | dict2items }}"
