@@ -1,6 +1,7 @@
 ---
 direnv_filename: .envrc
 vimrc_filename: .vimrc.local
+tasks_filename: .tasks
 project_list_other: {}
 project_list_github:
   projectdev:
@@ -14,4 +15,10 @@ project_list_github:
       - "export DOTFILES_CHECKOUT_PATH=/home/$DOTFILES_BOOTSTRAP_USER/bonhommelab"
     vimrc:
       - "\"Add vim commands"
+    vim_tasks:
+      - "[task_name]"
+      - "command=echo \"Example Task.\""
+      - "cwd=$(VIM_ROOT)"
+      - "output=terminal"
+      - "pos=floaterm"
 project_list: "{{ project_list_github | combine(project_list_other) }}"

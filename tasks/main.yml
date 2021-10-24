@@ -20,3 +20,11 @@
     src: vimrc.local.j2
     dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}/{{ vimrc_filename }}"
   loop: "{{ project_list | dict2items }}"
+
+- name: Set Vim Tasks Files
+  vars:
+    tasks_file_contents: "{{ item.value['vim_tasks'] | join('\n') }}"
+  template:
+    src: tasks.j2
+    dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}/{{ tasks_filename }}"
+  loop: "{{ project_list | dict2items }}"
