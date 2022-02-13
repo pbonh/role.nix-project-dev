@@ -1,0 +1,30 @@
+---
+#- name: Checkout Github Projects
+#  git:
+#    repo: "{{ item.value['repo'] }}"
+#    dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}"
+#  loop: "{{ project_list_github | dict2items }}"
+
+- name: Set direnv Files
+  vars:
+    direnv_file_contents: "{{ item.value['direnv'] | join('\n') }}"
+  template:
+    src: direnv.j2
+    dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}/{{ direnv_filename }}"
+  loop: "{{ project_list | dict2items }}"
+
+- name: Set vimrc Files
+  vars:
+    vimrc_file_contents: "{{ item.value['vimrc'] | join('\n') }}"
+  template:
+    src: vimrc.local.j2
+    dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}/{{ vimrc_filename }}"
+  loop: "{{ project_list | dict2items }}"
+
+- name: Set Vim Tasks Files
+  vars:
+    tasks_file_contents: "{{ item.value['vim_tasks'] | join('\n') }}"
+  template:
+    src: tasks.j2
+    dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}/{{ tasks_filename }}"
+  loop: "{{ project_list | dict2items }}"
