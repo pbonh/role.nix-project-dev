@@ -1,9 +1,10 @@
 ---
-#- name: Checkout Github Projects
-#  git:
-#    repo: "{{ item.value['repo'] }}"
-#    dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}"
-#  loop: "{{ project_list_github | dict2items }}"
+- name: Checkout Github Projects
+  git:
+    repo: "{{ item.value['repo'] }}"
+    dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}"
+    update: false
+  loop: "{{ project_list | dict2items }}"
 
 - name: Set direnv Files
   vars:
