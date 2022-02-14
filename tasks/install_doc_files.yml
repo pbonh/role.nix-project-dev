@@ -13,7 +13,7 @@
   file:
     path: "{{ code_doc_path_github }}/{{ item.0.value['name'] }}/{{ item.1 }}"
     state: directory
-  loop: "{{ projects | product('doc_dirs') | list }}"
+  loop: "{{ projects | product(doc_dirs) | list }}"
 
 - name: Add Project Pull Request Templates
   template:
