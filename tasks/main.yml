@@ -9,3 +9,8 @@
   tags:
     - vim
     - vscode
+
+- name: Install Project Documentation Files
+  import_tasks: install_doc_files.yml
+  tags:
+    - doc

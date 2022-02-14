@@ -1,4 +1,11 @@
 ---
+github_username: "{{ lookup('env', 'DOTFILES_BOOTSTRAP_GIT_NAME') }}"
+code_checkout_path: "{{ ansible_env.HOME }}/Code"
+code_doc_path: "{{ ansible_env.HOME }}/Code.Documents"
+code_checkout_path_github: "{{ code_checkout_path }}/github.com/{{ github_username }}"
+code_doc_path_github: "{{ code_doc_path }}/github.com/{{ github_username }}"
+code_checkout_path_gitlab: "{{ code_checkout_path }}/gitlab.com/{{ github_username }}"
+code_doc_path_gitlab: "{{ code_doc_path }}/gitlab.com/{{ github_username }}"
 direnv_filename: .envrc
 vimrc_filename: .vimrc.local
 tasks_filename: .tasks
