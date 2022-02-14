@@ -4,6 +4,16 @@
     path: "{{ code_doc_path_github }}"
     state: directory
 
+- name: Add Project Documentation Directories
+  vars:
+    doc_dirs:
+      - PRs
+      - Issues
+  file:
+    path: "{{ code_doc_path_github }}/{{ item.1.value['name'] }}/{{ item.0 }}"
+    state: directory
+  loop: "{{ doc_dirs | subelements(project_list | dict2items) }}"
+
 - name: Add Project Pull Request Templates
   template:
     src: PULL_REQUEST_TEMPLATE.md.j2
