@@ -6,6 +6,6 @@
 
 - name: Add Project Pull Request Templates
   template:
-    src: PULL_REQUEST.md.j2
-    dest: "{{ code_doc_path_github }}/{{ item.value['name'] }}/PULL_REQUEST.md"
+    src: PULL_REQUEST_TEMPLATE.md.j2
+    dest: "{{ code_doc_path_github }}/{{ item.value['name'] }}/PULL_REQUEST_TEMPLATE.md"
   loop: "{{ project_list | dict2items }}"
