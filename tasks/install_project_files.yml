@@ -14,12 +14,18 @@
     dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}/{{ direnv_filename }}"
   loop: "{{ project_list | dict2items }}"
 
+#- name: Setup Project-Config Directory
+#  file:
+#    path: "{{ nvim_projects_dir }}/{{ item.value['name'] }}"
+#    state: directory
+#  loop: "{{ project_list | dict2items }}"
+
 - name: Set vimrc Files
   vars:
     vimrc_file_contents: "{{ item.value['vimrc'] | join('\n') }}"
   template:
     src: vimrc.local.j2
-    dest: "{{ code_checkout_path_github }}/{{ item.value['name'] }}/{{ vimrc_filename }}"
+    dest: "{{ nvim_projects_dir }}/{{ item.value['name'] }}.vim"
   loop: "{{ project_list | dict2items }}"
 
 - name: Set Vim Tasks Files

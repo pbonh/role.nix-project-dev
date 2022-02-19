@@ -4,6 +4,11 @@
   tags:
     - toolbox
 
+- name: Setup Project-Config Directory
+  file:
+    path: "{{ nvim_projects_dir }}"
+    state: directory
+
 - name: Install Project Files
   import_tasks: install_project_files.yml
   tags:
