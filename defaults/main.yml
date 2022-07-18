@@ -21,7 +21,9 @@ project_list_github:
       - "export DOTFILES_BOOTSTRAP_GITHUB_USERNAME=\"pbonh\""
       - "export DOTFILES_CHECKOUT_PATH=/home/$DOTFILES_BOOTSTRAP_USER/bonhommelab"
     vimrc:
-      - "\"Add vim commands"
+      - "\"Add vim commands(vimscript)"
+    vimlua:
+      - "-- Add vim commands(lua)"
     vim_tasks:
       - "[task_name]"
       - "command=echo \"Example Task.\""

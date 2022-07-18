@@ -20,6 +20,14 @@
 #    state: directory
 #  loop: "{{ project_list | dict2items }}"
 
+- name: Set vimlua Files
+  vars:
+    vimlua_file_contents: "{{ item.value['vimlua'] | join('\n') }}"
+  template:
+    src: vimlua.local.j2
+    dest: "{{ nvim_projects_dir }}/{{ item.value['name'] }}.lua"
+  loop: "{{ project_list | dict2items }}"
+
 - name: Set vimrc Files
   vars:
     vimrc_file_contents: "{{ item.value['vimrc'] | join('\n') }}"
