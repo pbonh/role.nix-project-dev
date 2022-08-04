@@ -32,4 +32,4 @@ project_list_github:
       - "pos=floaterm"
 project_list: "{{ project_list_github | combine(project_list_other) }}"
 xdg_config_dir: "{{ ansible_env.HOME }}/.config"
-nvim_projects_dir: "{{ xdg_config_dir }}/projects-config"
+nvim_projects_dir: "{{ xdg_config_dir }}/nvim/projects"
